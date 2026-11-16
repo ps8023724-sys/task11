@@ -1,18 +1,145 @@
-import StudentProfileCard from "./components/StudentProfileCard";
-import "./App.css";
-
-function App() {
-  return (
-    <main className="directory">
-      <h1>Student Directory</h1>
-      <p className="intro">Three sample students shown with one reusable component.</p>
-      <div className="grid">
-        <StudentProfileCard name="Alex Kim" studentId="20260001" major="Computer Engineering" year="2nd year" gpa={3.82} />
-        <StudentProfileCard name="Jamie Park" studentId="20260002" major="Computer Engineering" year="3rd year" gpa={3.65} />
-        <StudentProfileCard name="Sam Lee" studentId="20260003" major="Computer Engineering" year="1st year" gpa={3.91} />
-      </div>
-    </main>
-  );
+:root {
+  --green: #2F4A38;
+  --cream: #F4EDE0;
+  --mustard: #F5A623;
+  --black: #161616;
 }
 
-export default App;
+body {
+  background: var(--cream);
+  color: var(--black);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.banner {
+  background: var(--green);
+  color: var(--cream);
+  text-align: center;
+  padding: 56px 6% 64px;
+}
+
+.banner h1 {
+  font-family: Georgia, serif;
+  color: var(--cream);
+  font-size: clamp(2.2rem, 7vw, 3.6rem);
+  margin: 0 0 16px;
+}
+
+.pill {
+  display: inline-block;
+  margin: 0;
+  background: var(--mustard);
+  color: var(--black);
+  font-weight: bold;
+  padding: 6px 18px;
+  border-radius: 999px;
+}
+
+.directory {
+  max-width: 1000px;
+  margin: -32px auto 0;
+  padding: 0 6% 48px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.student-card {
+  background: white;
+  border-top: 8px solid var(--mustard);
+  border-radius: 16px;
+  padding: 28px 24px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.student-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+}
+
+.avatar {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  background: var(--green);
+  color: var(--cream);
+  font-family: Georgia, serif;
+  font-size: 1.7rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid var(--mustard);
+}
+
+.student-card h2 {
+  margin: 0 0 4px;
+  font-family: Georgia, serif;
+  color: var(--green);
+  font-size: 1.5rem;
+}
+
+.major {
+  margin: 0 0 18px;
+  color: #4A4458;
+}
+
+.student-card dl {
+  margin: 0;
+  text-align: left;
+}
+
+.student-card dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid #E6DCC8;
+}
+
+.student-card dt {
+  font-weight: bold;
+}
+
+.student-card dd {
+  margin: 0;
+}
+
+.gpa {
+  background: var(--mustard);
+  color: var(--black);
+  font-weight: bold;
+  padding: 2px 12px;
+  border-radius: 999px;
+}
+
+.note {
+  text-align: center;
+  color: #4A4458;
+  font-size: 0.9rem;
+  margin: 28px 0 0;
+}
+
+.footer {
+  background: var(--green);
+  color: var(--cream);
+  text-align: center;
+  padding: 22px;
+  font-size: 0.9rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .student-card {
+    transition: none;
+  }
+  .student-card:hover {
+    transform: none;
+  }
+}
